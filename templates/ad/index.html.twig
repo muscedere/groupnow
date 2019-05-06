@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les événements{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1 class="my-5">Voici les événements !</h1>
+
+    <div class="jumbotron">
+        <div class="container">
+            {{form_start(form)}}
+            {{form_end(form)}}
+        </div>
+    </div>
+
+    <div class="row">
+        {% for ad in ads %}
+            {% include 'ad/_ad.html.twig' %}
+        {% endfor %}
+    </div>
+    <div class="pagination">
+            {{ knp_pagination_render(ads) }}
+        </div>
+</div>
+{% endblock %}

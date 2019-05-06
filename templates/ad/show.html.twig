@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ ad.title }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="ad-title" style="background-image: url({{ ad.coverImage }})">
+        <div class="container-fluid banner-ad">
+            <div class="row">
+                <div class="col-6">
+                </div>
+                <div class="col-6 px-5 py-5 aside-banner">
+                    <h5><span class="badge badge-default">{{ad.category.title}}</span></h5>
+                    <h2>{{ ad.title }}</h2>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container show-ad">
+        <div class="row">
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-6">
+                        <h3><a href="{{ path('booking_create', {'slug': ad.slug}) }}" class="py-2 px-2  btn-orange btn btn-default"><strong>Je participe</strong></a></h3>
+                    </div>
+                    <div class="col-6">
+                        <h3><a href="#" class="py-2 px-2 btn-grey btn btn-default"><strong>Je ne participe pas</strong></a></h3>
+                    </div>
+                    <p class="ml-3 mt-3 mb-3">
+                        <strong>Lieu :</strong> {{ ad.place }} <br>
+                        <strong>Date :</strong> {{ ad.date | date('d/m/y') }} <br>
+                        <strong>Heure :</strong> {{ ad.date | date('h:m') }} <br>
+                        <strong>Nombre de place :</strong> {{ ad.rooms }}<br>
+                        <strong>Budget /Personne :</strong> {{ ad.price }}<br>
+                        <strong>Description :</strong> <br> {{ ad.content }}
+
+                    </p>
+                    <div class="container comment-area">
+                        {% if ad.comments|length > 0 %}
+                            <div class="row divider-profil">
+                                <div class="col-3">
+                                    <h5 class="mb-3">COMMENTAIRES</h5>
+                                </div>
+                                <div class="col-9">
+                                    <hr>
+                                </div>
+                            </div>
+
+                            {% for comment in ad.comments %}
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img class="avatar avatar-medium" src="{{ comment.author.picture }}" alt="#">
+
+                                    </div>
+                                    <div class="col-10">
+                                        <strong>{{ comment.author.firstName }}</strong>
+                                        <div class="bg-light rounded mb-3 py-3 px-3">
+                                            <blockquote>
+                                                {{ comment.content }}
+
+                                            </blockquote>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <h2>Cette événement n'a pas encore reçu de commentaires ...</h2>
+                        {% endif %}
+                    </div>
+                    {#<div class="container">
+
+                        {{ form_start(form) }}
+                        <div class="alert alert-light">
+
+                            <h4 class="mt-3">Vous avez un commentaire ?</h4>
+                            {{ form_row(form.content) }}
+                        </div>
+
+                        <button type="submit" class="btn btn-success">Je participe !</button>
+
+                        {{ form_end(form) }}
+
+                    </div>#}
+
+                </div>
+            </div>
+            <div class="col-4 participants">
+                <h3><a style="color: #FFFFFF;"href="#" class="py-2 px-2 btn btn-default"><strong>Participants</strong></a></h3>
+                <div class="container participants-container py-3 px-3">
+
+                        {% if ad.bookings|length > 0 %}
+                            {% for booker in ad.bookings %}
+                                <div class="row py-2 px-2 align-items-center">
+                                    <div class="col-3">
+
+                                        {% if booker.booker.picture|length > 0 %}
+                                            <img src="{{ booker.booker.picture }}" class="avatar avatar-medium"
+                                                 alt="avatar avatar-medium">
+                                        {% else %}
+                                            <img src="https://via.placeholder.com/150" class="card-img-top"
+                                                 alt="placeholder">
+
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-9">
+                                        <p class="mt-1">
+                                            <strong>{{ booker.booker.firstName }}</strong><br/>
+                                            participe
+
+                                        </p>
+
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                            {% if app.user and app.user == ad.author %}
+                                <a href="{{ path('ads_edit', {'slug': ad.slug}) }}" class="btn btn-secondary">Modifier
+                                    l'événement</a>
+
+                                <a href="{{ path('ads_delete', {'slug': ad.slug}) }}" class="btn btn-danger"
+                                   onclick="return confirm(`Êtes vous sur de vouloir supprimer l'événements : {{ ad.title }} ?`)">Supprimer
+                                    l'événement</a>
+                            {% endif %}
+                        {% else %}
+                            <h3>Aucun participant</h3>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+{% endblock %}

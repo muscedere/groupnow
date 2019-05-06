@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Activity{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h1 class="my-5">Voici les événements !</h1>
+
+            <div class="row">
+                {% for ad in activity.ad %}
+                    {% include 'ad/_ad.html.twig' %}
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+    <a href="{{ path('category_index') }}">Retour vers Catégories</a>
+
+{% endblock %}

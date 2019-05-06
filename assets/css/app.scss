@@ -1,0 +1,249 @@
+@import url('./bootstrap.min.css');
+/*---------- Variable -------*/
+$orange :#FF9D00 ;
+$light-grey:#F5F5F5;
+$green: #45A5BF;
+$blue: #285662;
+
+
+
+/*---------General---------*/
+div.container, div.container-fluid {
+    margin-top: 20px;
+}
+.navbar{
+    background-color:$orange ;
+    a{
+        color: #fff;
+    }
+    .navbar-brand img{
+        width: 150px;
+        height: 30px;
+    }
+    .navbar-toggler-icon,.dropdown-menu a{
+        color: #000;
+    }
+}
+div.ad-title {
+    padding: 2em;
+    background-size: cover;
+    background-position: center center;
+
+    h1, p {
+        color: white;
+        text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+    }
+
+    .btn {
+        margin-top: 2em;
+        font-size: 1.5em;
+        line-height: 1.5em;
+    }
+}
+
+div.carousel-caption {
+    text-shadow: 3px 3px 3px rgba(0,0,0, 0.5);
+}
+
+.avatar {
+    max-width: 128px;
+    max-height: 128px;
+    border-radius: 100%;
+
+    &.avatar-medium {
+        max-width: 64px;
+        max-height: 64px;
+    }
+
+    &.avatar-mini {
+        max-width: 24px;
+        max-height: 24px;
+    }
+
+    &.avatar-micro {
+        max-width: 20px;
+        max-height: 20px;
+    }
+}
+
+
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+    color: firebrick !important;
+}
+
+span.rating i {
+    color:#FF9D00 ;
+}
+
+.alert {
+    a {
+        text-decoration: none;
+    }
+
+    .btn {
+        color: white;
+    }
+}
+
+/*-------Page Login--------*/
+.container-login,.container-register{
+    margin-top: 20px;
+    padding-top: 30px;
+    background-color:#285662 ;
+    text-align: center;
+    h1{
+        color:#000;
+        text-align: center;
+        font-size: 35px;
+    }
+    .container-conexion{
+        border-radius: 10px;
+        background-color:#F5F5F5 ;
+    }
+    .btn-login{
+        width: 100%;
+        color:#fff;
+        background-color: #45A5BF;
+        border-radius: 6px;
+        font-size: 20px;
+    }
+    .divider-login{
+        margin-top: 30px;
+        border:1px solid #F5F5F5;
+    }
+    .link-notaccount{
+        margin-top: -30px;
+        text-align: center;
+        color: #fff;
+    }
+    .form-control{
+        border:none;
+        height: 50px;
+
+    }
+    .circle-icone
+    {
+        text-align: center;
+        justify-content: center;
+        margin-top: -46px;
+        padding-top: 5px;
+        font-size: 20px;
+        background-color: #45A5BF;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        i{
+            color: #FFF;
+
+        }
+    }
+}
+
+
+
+
+/*-------Page profile-------*/
+ .card-profil{
+     background-color: #F5F5F5;
+     padding-bottom: 10px;
+     img{
+         border:3px solid #fff;
+         margin-top: 20px;
+     }
+     .btn{
+         width: 100%;
+         background-color:#45A5BF ;
+         color: #fff;
+         border-radius: 8px;
+     }
+ }
+
+ .card-description{
+     h3{
+         background-color:#45A5BF;
+         margin-bottom: -10px;
+         color: #fff;
+         font-size: 25px;
+     }
+     p{
+         background-color:#F5F5F5 ;
+         margin-bottom: 0px;
+     }
+ }
+ .divider-profil{
+     margin-top: 30px;
+     margin-bottom: 30px;
+     h5{
+         color: $green;
+     }
+     hr{
+         border:1px solid $green;
+         margin-top: 10px;
+     }
+ }
+.card{
+    border:none;
+    padding-bottom: -10px;
+}
+ .card-profil-event{
+     background-color: #F5F5F5;
+     
+     .btn{
+         width: 112%;
+         margin-left: -6%;
+         background-color:#FF9D00 ;
+         color: #fff;
+         border-radius: 8px;
+         margin-bottom: -20px;
+     }
+     .title-card-profil{
+         color: #000;
+     }
+ }
+
+ /*------ Page show event-----*/
+.ad-title{
+    min-height:350px;
+
+    .aside-banner{
+        background: #000;
+        opacity: 0.8;
+        margin-top: 30px;
+    }
+    .badge{
+        background-color:#FF9D00 ;
+        color: #fff;
+    }
+    h2{
+        color: #fff;
+    }
+    .banner-ad{
+        margin-right: -50px;
+    }
+}
+.show-ad{
+    .btn-orange{
+        background-color:#FF9D00 ;
+        width: 100%;
+        color: #FFF;
+        border-radius:0;
+    }
+    .btn-grey{
+        background-color:#F5F5F5 ;
+        width: 100%;
+        color: #FFF;
+        border-radius: 0;
+    }
+    .participants{
+        h3{
+            background-color: $green;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+        }
+    }
+    .participants-container{
+        background-color: $light-grey;
+        margin-top: -7px;
+    }
+}
